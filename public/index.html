@@ -602,17 +602,53 @@
             background: rgba(55, 136, 216, 0.08);
         }
 
-        /* Responsive */
+        /* List view styles */
+        .fc .fc-list {
+            border: none;
+        }
+
+        .fc .fc-list-sticky .fc-list-day > * {
+            background: var(--background);
+        }
+
+        .fc .fc-list-day-cushion {
+            background: var(--background);
+            padding: 10px 14px;
+        }
+
+        .fc .fc-list-event {
+            cursor: pointer;
+        }
+
+        .fc .fc-list-event:hover td {
+            background: rgba(55, 136, 216, 0.05);
+        }
+
+        .fc .fc-list-event-dot {
+            border-color: currentColor;
+        }
+
+        .fc .fc-list-event-title {
+            font-weight: 500;
+        }
+
+        /* Responsive - Tablet */
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: center;
+                text-align: center;
                 gap: 12px;
                 padding: 16px;
             }
 
+            .logo-section {
+                flex-direction: column;
+                gap: 12px;
+            }
+
             .logo {
-                height: 40px;
+                height: 44px;
             }
 
             .header-title {
@@ -620,20 +656,40 @@
             }
 
             .container {
-                padding: 0 16px 24px;
+                padding: 0 12px 24px;
+            }
+
+            .card {
+                border-radius: var(--radius-md);
             }
 
             .controls {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: stretch;
+                gap: 12px;
+            }
+
+            .controls-group {
+                justify-content: center;
+                flex-wrap: wrap;
             }
 
             .legend {
+                justify-content: center;
                 gap: 8px;
+                padding: 12px;
             }
 
             .legend-item {
-                padding: 6px 10px;
+                padding: 10px 14px;
+            }
+
+            .overlap-panel {
+                padding: 16px;
+            }
+
+            .overlap-item {
+                padding: 12px;
             }
 
             .fc .fc-toolbar {
@@ -644,6 +700,299 @@
             .fc .fc-toolbar-chunk {
                 display: flex;
                 justify-content: center;
+            }
+
+            .event-popup {
+                width: 95%;
+                max-height: 90vh;
+                overflow-y: auto;
+            }
+
+            .event-popup-header {
+                padding: 16px 20px;
+            }
+
+            .event-popup-body {
+                padding: 20px;
+            }
+        }
+
+        /* Responsive - Mobile */
+        @media (max-width: 480px) {
+            body {
+                font-size: 15px;
+            }
+
+            .header {
+                margin-bottom: 16px;
+            }
+
+            .header-content {
+                padding: 12px 16px;
+            }
+
+            .logo {
+                height: 36px;
+            }
+
+            .header-title {
+                font-size: 1.1rem;
+            }
+
+            .header-subtitle {
+                font-size: 0.8rem;
+            }
+
+            .container {
+                padding: 0 10px 20px;
+            }
+
+            /* Full-width cards on mobile */
+            .card {
+                border-radius: var(--radius-sm);
+            }
+
+            /* Legend as horizontal scroll on mobile */
+            .legend {
+                padding: 10px 12px;
+                gap: 6px;
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+
+            .legend::-webkit-scrollbar {
+                display: none;
+            }
+
+            .legend-item {
+                flex-shrink: 0;
+                padding: 8px 12px;
+                min-height: 44px;
+            }
+
+            .legend-color {
+                width: 12px;
+                height: 12px;
+            }
+
+            .legend-label {
+                font-size: 13px;
+            }
+
+            /* Controls stacked */
+            .controls {
+                padding: 12px;
+                gap: 10px;
+            }
+
+            .controls-group {
+                width: 100%;
+            }
+
+            .controls-label {
+                display: none;
+            }
+
+            .btn {
+                padding: 12px 16px;
+                min-height: 44px;
+                font-size: 14px;
+            }
+
+            #toggleOverlaps {
+                width: 100%;
+            }
+
+            .overlap-nav {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .overlap-counter {
+                flex: 1;
+            }
+
+            #overlapStatus {
+                width: 100%;
+                justify-content: center;
+            }
+
+            /* Overlap panel mobile */
+            .overlap-panel {
+                padding: 12px;
+                margin-bottom: 16px;
+            }
+
+            .overlap-panel h3 {
+                font-size: 14px;
+                margin-bottom: 12px;
+            }
+
+            .overlap-list {
+                max-height: 200px;
+            }
+
+            .overlap-item {
+                padding: 10px;
+                margin-bottom: 8px;
+            }
+
+            .overlap-date {
+                font-size: 13px;
+                margin-bottom: 6px;
+            }
+
+            .overlap-event-chip {
+                padding: 4px 8px;
+                font-size: 11px;
+            }
+
+            /* Calendar mobile */
+            #calendar {
+                padding: 10px;
+            }
+
+            .fc .fc-toolbar-title {
+                font-size: 1.1em;
+            }
+
+            .fc .fc-button {
+                padding: 8px 10px;
+                font-size: 12px;
+            }
+
+            .fc .fc-button-group {
+                gap: 2px;
+            }
+
+            .fc .fc-toolbar-chunk {
+                gap: 4px;
+            }
+
+            .fc .fc-daygrid-day-number {
+                font-size: 12px;
+                padding: 4px;
+            }
+
+            .fc .fc-col-header-cell-cushion {
+                font-size: 10px;
+                padding: 6px 2px;
+            }
+
+            .fc .fc-event {
+                font-size: 10px;
+                padding: 1px 4px;
+            }
+
+            .fc .fc-daygrid-event-dot {
+                margin: 0 2px;
+            }
+
+            .fc .fc-daygrid-day-events {
+                margin-top: 1px;
+            }
+
+            /* Event popup full screen on mobile */
+            .event-popup {
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+                max-height: 85vh;
+                border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+                top: auto;
+                bottom: 0;
+                transform: translateX(-50%);
+                animation: slideUp 0.3s ease;
+            }
+
+            @keyframes slideUp {
+                from { opacity: 0; transform: translateX(-50%) translateY(100%); }
+                to { opacity: 1; transform: translateX(-50%) translateY(0); }
+            }
+
+            .event-popup-header {
+                padding: 16px;
+            }
+
+            .event-popup h3 {
+                font-size: 16px;
+            }
+
+            .event-popup-close {
+                width: 36px;
+                height: 36px;
+            }
+
+            .event-popup-body {
+                padding: 16px;
+            }
+
+            .event-detail {
+                margin-bottom: 14px;
+            }
+
+            .event-detail-label {
+                font-size: 10px;
+            }
+
+            .event-detail-value {
+                font-size: 14px;
+            }
+
+            .event-calendar-badge {
+                padding: 5px 10px;
+                font-size: 12px;
+            }
+
+            /* Error messages */
+            .error {
+                padding: 12px 14px;
+                font-size: 13px;
+            }
+
+            .error::before {
+                width: 18px;
+                height: 18px;
+                font-size: 11px;
+            }
+
+            /* Loading state */
+            .loading {
+                padding: 40px 20px;
+                font-size: 14px;
+            }
+
+            .loading::after {
+                width: 28px;
+                height: 28px;
+            }
+        }
+
+        /* Very small screens */
+        @media (max-width: 360px) {
+            .header-title {
+                font-size: 1rem;
+            }
+
+            .logo {
+                height: 32px;
+            }
+
+            .btn {
+                padding: 10px 12px;
+                font-size: 13px;
+            }
+
+            .fc .fc-button {
+                padding: 6px 8px;
+                font-size: 11px;
+            }
+
+            .fc .fc-toolbar-title {
+                font-size: 1em;
             }
         }
 
@@ -844,8 +1193,9 @@
             const overlap = overlaps[currentOverlapIndex];
             calendar.gotoDate(overlap.start);
 
+            const isMobile = window.innerWidth <= 480;
             if (calendar.view.type === 'dayGridMonth') {
-                calendar.changeView('timeGridWeek');
+                calendar.changeView(isMobile ? 'listMonth' : 'timeGridWeek');
             }
 
             updateOverlapCounter();
@@ -1084,9 +1434,15 @@
                 const calendarEl = document.getElementById('calendar');
                 calendarEl.innerHTML = '';
 
+                const isMobile = window.innerWidth <= 480;
+
                 calendar = new FullCalendar.Calendar(calendarEl, {
-                    initialView: 'dayGridMonth',
-                    headerToolbar: {
+                    initialView: isMobile ? 'listMonth' : 'dayGridMonth',
+                    headerToolbar: isMobile ? {
+                        left: 'prev,next',
+                        center: 'title',
+                        right: 'listMonth,dayGridMonth'
+                    } : {
                         left: 'prev,next today',
                         center: 'title',
                         right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
@@ -1098,7 +1454,18 @@
                     height: 'auto',
                     navLinks: true,
                     editable: false,
-                    dayMaxEvents: true
+                    dayMaxEvents: isMobile ? 2 : true,
+                    views: {
+                        listMonth: {
+                            titleFormat: { year: 'numeric', month: 'short' }
+                        }
+                    },
+                    windowResize: function(view) {
+                        const nowMobile = window.innerWidth <= 480;
+                        if (nowMobile && calendar.view.type === 'timeGridWeek') {
+                            calendar.changeView('listMonth');
+                        }
+                    }
                 });
 
                 calendar.render();
